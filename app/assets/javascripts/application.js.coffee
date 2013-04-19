@@ -20,6 +20,6 @@
 #= require raffler
 
 @Raffler = Ember.Application.create(
-  LOG_BINDINGS: true,
+  LOG_BINDINGS: true
   LOG_TRANSITIONS: true
 )
