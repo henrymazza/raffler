@@ -1,6 +1,8 @@
+<p>{{capitalize title}}, there {{pluralize length single="is ## name" plural="are ## names"}} in the list.</p>
+<p>{{secondsViewed}}</p>
 <ul>
   {{#each controller}}
-    <li>{{name}}
+    <li>{{name}} ({{name.length}} characters)
       {{#if winner}}
         <span {{bindAttr class="winner highlight" }}>winner</span>
       {{/if}}
