@@ -32,12 +32,13 @@ input {
 .winner {
   color: white;
   background-color: #000;
+  padding: 3px;
 }
-
 .highlight {
   background-color: red;
 }
 
 li {
+  margin: 10px;
   position: inline;
 }
