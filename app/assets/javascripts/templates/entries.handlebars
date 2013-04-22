@@ -1,13 +1,14 @@
 <p>{{capitalize title}}, there {{pluralize length single="is ## name" plural="are ## names"}} in the list.</p>
 <p>{{secondsViewed}}</p>
+{{view Raffler.NewEntryView}}
 <ul>
   {{#each controller}}
-    <li>{{name}} ({{name.length}} characters)
+    <li {{bindAttr class="isValid isError isDirty"}}>{{name}} ({{name.length}} characters)
       {{#if winner}}
         <span {{bindAttr class="winner highlight" }}>winner</span>
       {{/if}}
+      <a href="#" class="delete_entry" {{action removeItem this}}>✖</a>
     </li>
   {{/each}}
 </ul>
-{{view Ember.TextField valueBinding="newEntryName" action="addEntry"}}
-<button {{action "drawWinner"}}>Draw Winner!</button>
+<button {{action "drawWinner"}} {{bindAttr disabled='allWinners'}}>Draw Winner!</button>

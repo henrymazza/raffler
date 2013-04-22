@@ -2,9 +2,13 @@ Raffler.EntriesController = Ember.ArrayController.extend
   itemController: 'entry'
   sortProperties: ['name']
   sortAscending: true
-  addEntry: ->
-    @pushObject Ember.Object.create(name: @get('newEntryName'))
-    @set("newEntryName", "")
+  addEntry: (name) ->
+    rec = Raffler.Entry.createRecord(name: name)
+    @store.commit()
+
+  removeItem: (obj) ->
+    obj.get('content').deleteRecord()
+    @store.commit()
 
   drawWinner: ->
     @setEach('highlight', false)
@@ -14,4 +18,8 @@ Raffler.EntriesController = Ember.ArrayController.extend
       entry = pool[Math.floor(Math.random()*pool.length)]
       entry.set('winner', true)
       entry.set('highlight', true)
+      @store.commit()
 
+  allWinners: (->
+    @everyProperty('winner')
+  ).property('@each.winner')

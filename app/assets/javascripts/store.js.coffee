@@ -1,4 +1,5 @@
-console.log "heloowww!!!", Raffler
-Raffler.Store = DS.Store.extend(
+Raffler.Store = DS.Store.extend
   revision: 11
-)
+
+DS.RESTAdapter.configure('plurals', entry: 'entries')
+

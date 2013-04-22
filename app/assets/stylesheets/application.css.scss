@@ -42,3 +42,17 @@ li {
   margin: 10px;
   position: inline;
 }
+.is-error{
+  color: red;
+  text-decoration: underline;
+}
+.is-valid{
+  color: blue;
+}
+.is-dirty{
+  color: maroon;
+}
+.delete_entry{
+  color: maroon;
+  text-decoration: none;
+}
