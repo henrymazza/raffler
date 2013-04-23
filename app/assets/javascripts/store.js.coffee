@@ -1,5 +1,5 @@
 Raffler.Store = DS.Store.extend
-  revision: 11
+  revision: 12
 
 DS.RESTAdapter.configure('plurals', entry: 'entries')
 
