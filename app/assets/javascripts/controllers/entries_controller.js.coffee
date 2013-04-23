@@ -11,14 +11,13 @@ Raffler.EntriesController = Ember.ArrayController.extend
     @store.commit()
 
   drawWinner: ->
-    @setEach('highlight', false)
-    pool = @rejectProperty('winner')
-    if pool.length > 0
-      #TODO make this server side
-      entry = pool[Math.floor(Math.random()*pool.length)]
-      entry.set('winner', true)
-      entry.set('highlight', true)
-      @store.commit()
+    $.ajax
+      url: '/entries/new_winner'
+      success: (r)=>
+        @forEach (e)->
+          e.get('content').reload()
+      error: (r)->
+        console.log r
 
   allWinners: (->
     @everyProperty('winner')

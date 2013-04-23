@@ -1,4 +1,5 @@
 Raffler::Application.routes.draw do
+  get '/entries/new_winner', 'entries#new_winner'
   resources :entries
 
   root to: 'application#index'

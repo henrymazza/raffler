@@ -17,6 +17,17 @@ class EntriesController < ApplicationController
     respond_with Entry.destroy(params[:id])
   end
 
+  def new_winner
+    q = Entry.order('RANDOM()').where(:winner => false)
+
+    Entry.update_all(winner: false) if q.count == 0
+
+    e = q.first
+    e.winner = true
+    e.save
+    respond_with e
+  end
+
   protected
   def entry_params
     params[:entry].permit(:id, :name, :winner)
