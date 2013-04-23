@@ -10,7 +10,8 @@ Ember.Handlebars.registerBoundHelper 'pluralize', (number, options) ->
     result.replace(/##/g, number)
 
 Ember.Handlebars.registerBoundHelper 'capitalize', (value) ->
-  return value.toUpperCase()
+  value.toUpperCase()
 
 Ember.Handlebars.registerBoundHelper 'date', (date) ->
-  return moment(date).fromNow()
+  moment.lang('pt-br', I18N['pt-br'])
+  moment(date).fromNow()
