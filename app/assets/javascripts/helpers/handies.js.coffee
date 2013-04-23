@@ -1,4 +1,4 @@
-Ember.Handlebars.registerBoundHelper('pluralize', (number, options) ->
+Ember.Handlebars.registerBoundHelper 'pluralize', (number, options) ->
     result = if number < 2
       options.hash.single
     else
@@ -8,8 +8,9 @@ Ember.Handlebars.registerBoundHelper('pluralize', (number, options) ->
         options.hash.single + 's'
 
     result.replace(/##/g, number)
-)
 
-Ember.Handlebars.registerBoundHelper('capitalize', (value) ->
+Ember.Handlebars.registerBoundHelper 'capitalize', (value) ->
   return value.toUpperCase()
-)
+
+Ember.Handlebars.registerBoundHelper 'date', (date) ->
+  return moment(date).fromNow()

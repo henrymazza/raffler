@@ -8,6 +8,7 @@
         <span {{bindAttr class="winner highlight" }}>winner</span>
       {{/if}}
       <a href="#" class="delete_entry" {{action removeItem this}}>✖</a>
+      <em class="date">{{date created_at}}</em>
     </li>
   {{/each}}
 </ul>

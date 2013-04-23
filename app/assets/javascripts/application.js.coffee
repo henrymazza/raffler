@@ -18,6 +18,8 @@
 #= require ember-data
 #= require_self
 #= require raffler
+#= require moment.min
+#= require i18n
 
 @Raffler = Ember.Application.create(
   LOG_BINDINGS: true
