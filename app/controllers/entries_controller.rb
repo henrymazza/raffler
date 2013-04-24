@@ -20,12 +20,18 @@ class EntriesController < ApplicationController
   def new_winner
     q = Entry.order('RANDOM()').where(:winner => false)
 
-    Entry.update_all(winner: false) if q.count == 0
-
-    e = q.first
-    e.winner = true
-    e.save
-    respond_with e
+    unless q.count == 0
+      e = q.first
+      e.winner = true
+      e.save
+      respond_with e
+    else
+      Entry.update_all(winner: false)
+      e = q.first
+      e.winner = true
+      e.save
+      respond_with Entry.all
+    end
   end
 
   protected
